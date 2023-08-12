@@ -1,0 +1,7 @@
+title: "OFome Delivery"
+description: "OFome Delivery: Sabor que chega até você!"
+icon: "/assets/img/icon.png"
+lang: "pt-BR"
+
+plugins:
+  - "jekyll-sitemap"
