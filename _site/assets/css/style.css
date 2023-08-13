@@ -334,6 +334,21 @@ header h1 {
   color: var(--brand-secondary-color);
 }
 
+.button {
+  display: inline-block;
+  background-color: var(--brand-color);
+  color: var(--bg-color);
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.button:hover {
+  background-color: var(--brand-color);
+  color: var(--bg-color);
+  opacity: 0.8;
+}
+
 .brand {
   color: var(--brand-color);
 }
