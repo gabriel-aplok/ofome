@@ -1,9 +1,11 @@
 ---
 ---
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 :root {
 	--bg-color: #FFFFFF;
 	--bg-secondary-color: #F5F5F5;
+	--bg-footer-color: #020202;
 	--text-color: #212121;
 	--text-secondary-color: #616161;
 	--brand-color: #6A1B9A;
@@ -13,16 +15,17 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	transition-duration: 0.4s;
 }
 
 body {
 	background-color: var(--bg-color);
 	color: var(--text-color);
-	font-family: Arial, sans-serif;
+	font-family: Lato, Helvetica Neue, Helvetica, Arial, Sans-Serif;
 	font-size: 16px;
 	letter-spacing: 1px;
 	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
 }
 
 
@@ -65,7 +68,7 @@ a {
 	text-decoration: none;
 
 	&:hover {
-		color: var(--text-color);
+		color: var(--brand-color);
 		text-decoration: none;
 	}
 }
@@ -77,27 +80,116 @@ header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	letter-spacing: 0;
+	letter-spacing: 0.1px;
 
 	* {
 		color: var(--bg-color);
 	}
 
-	nav {
-		ul {
-			list-style: none;
-			display: flex;
-
-			li {
-				margin-right: 10px;
-
-				a {
-					text-decoration: none;
-					color: var(--bg-color);
-				}
-			}
-		}
+	h1 {
+		font-weight: bold;
 	}
+}
+
+.hamburger-menu {
+	display: block;
+	position: fixed;
+	top: 40px;
+	right: 20px;
+	z-index: 9999;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+}
+
+.hamburger-menu .toggle-menu {
+	display: block;
+	width: 40px;
+	height: 35px;
+	position: absolute;
+	top: -15px;
+	left: -5px;
+	cursor: pointer;
+	opacity: 0;
+	z-index: 9999;
+	-webkit-touch-callout: none;
+}
+
+.hamburger-menu span {
+	background-color: var(--bg-color);
+	display: block;
+	width: 33px;
+	height: 3px;
+	margin-bottom: 6px;
+	position: relative;
+	opacity: 0.4;
+	border-radius: 2px;
+	z-index: 9999;
+	transform-origin: 4px 0px;
+	transition: transform .5s cubic-bezier(0.77, 0.2, .05, 1), opacity 0.55s ease;
+}
+
+.hamburger-menu span:first-child {
+	transform-origin: 0% 0%;
+}
+
+.hamburger-menu span:nth-last-child(2) {
+	transform-origin: 0% 100%;
+}
+
+.hamburger-menu .toggle-menu:checked ~ span {
+	opacity: 1;
+	transform: rotate(45deg) translate(-2px, -1px);
+}
+
+.hamburger-menu .toggle-menu:checked ~ span:nth-last-child(3) {
+	opacity: 0;
+	transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+.hamburger-menu .toggle-menu:checked ~ span:nth-last-child(2) {
+	transform: rotate(-45deg) translate(0, -1px);
+}
+
+.hamburger-menu .menu {
+	background-color: var(--text-color);
+	position: fixed;
+	width: 300px;
+	top: 0;
+	right: -350px;
+	bottom: 0;
+	margin: 0;
+	padding: 80px 0 50px;
+	opacity: 0;
+	overflow-y: auto;
+	list-style-type: none;
+	transition: right 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.5s ease-in-out;
+	box-shadow: 10px 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.hamburger-menu .menu li {
+	padding: 0;
+	font-size: 20px;
+}
+
+.hamburger-menu .menu a {
+	color: var(--bg-color);
+	font-weight: bold;
+	display: block;
+	background-color: transparent;
+	padding: 10px 20px;
+	text-decoration: none;
+	border-left: 3px solid transparent;
+	transition: border-color .3s ease-in-out;
+}
+
+.hamburger-menu .menu a:hover {
+	border-color: var(--brand-color);
+}
+
+.hamburger-menu .toggle-menu:checked ~ .menu {
+	right: 0;
+	opacity: 1;
 }
 
 .banner {
@@ -176,7 +268,7 @@ header {
 }
 
 .footer {
-	background-color: var(--text-color);
+	background-color: var(--bg-footer-color);
 	justify-content: center;
 	align-items: center;
 	text-align: center;
