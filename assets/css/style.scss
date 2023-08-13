@@ -15,7 +15,6 @@
 * {
 	margin: 0;
 	padding: 0;
-	max-width: 100vw;
 	box-sizing: border-box;
 }
 
@@ -25,11 +24,11 @@ body {
 	font-family: Lato, Helvetica Neue, Helvetica, Arial, Sans-Serif;
 	font-size: 16px;
 	letter-spacing: 1px;
+	max-width: 100vw;
 	user-select: none;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 }
-
 
 h1, h2, h3, h4, h5, h6 {
 	color: var(--text-color);
@@ -107,13 +106,13 @@ header {
 .hamburger-menu .toggle-menu {
 	display: block;
 	width: 40px;
-	height: 35px;
+	height: 40px;
 	position: absolute;
 	top: -15px;
 	left: -5px;
 	cursor: pointer;
 	opacity: 0;
-	z-index: 9999;
+	z-index: 99999;
 	-webkit-touch-callout: none;
 }
 
@@ -186,7 +185,7 @@ header {
 }
 
 .hamburger-menu .menu a:hover {
-	border-color: var(--brand-color);
+	border-color: var(--bg-color);
 }
 
 .hamburger-menu .toggle-menu:checked ~ .menu {
@@ -234,7 +233,7 @@ header {
 	flex-direction: column;
 	display: flex;
 	min-height: 100vh;
-	max-height: 100vw;
+	max-width: 100vw;
 	padding: 20px;
 
 	.title {
